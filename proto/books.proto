@@ -1,0 +1,23 @@
+syntax = "proto3";
+
+package books_service;
+
+option go_package = "books_service.books_service.v1;books_servicev1";
+
+service BooksService{
+  rpc CreateBook(AuthRequest) returns (AuthResponse);
+  rpc GetBook(AuthRequest) returns (AuthResponse);
+  rpc DeleteBook(AuthRequest) returns (AuthResponse);
+}
+
+message AuthRequest {
+  string label = 1;
+  string author = 2;
+  string userUid = 3;
+}
+
+message AuthResponse {
+  string token = 1;
+  string message = 2;
+
+}
